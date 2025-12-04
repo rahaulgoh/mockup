@@ -1,23 +1,43 @@
+/* ============================
+   BRAND COLOR SYSTEM (TOKENS)
+============================ */
+:root {
+    --primary: #2C2C54;         /* Space Indigo */
+    --secondary: #6494AA;       /* Air Force Blue */
+    --accent-olive: #8DB557;    /* Muted Olive */
+    --accent-forest: #054A29;   /* Deep Forest */
+    --accent-red: #C41E3D;      /* Intense Cherry */
+
+    --text-dark: #0c1b33;
+    --text-light: #ffffff;
+
+    --bg-light: #f9fafb;
+}
+
+/* ============================
+   BASE STYLES
+============================ */
 body {
     margin: 0;
     font-family: "Poppins", sans-serif;
-    background: #f9fafb;
-    color: #0c1b33;
+    background: var(--bg-light);
+    color: var(--text-dark);
 }
 
-html{
+html {
     scroll-behavior: smooth;
 }
 
-/* NAVIGATION */
-/* STICKY NAVBAR */
+/* ============================
+   NAVIGATION
+============================ */
 .navbar {
     position: sticky;
     top: 0;
     z-index: 999;
-    backdrop-filter: blur(10px);
-    background: rgba(255, 255, 255, 0.7);
-    border-bottom: 1px solid rgba(0,0,0,0.07);
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.82);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .nav-inner {
@@ -31,9 +51,9 @@ html{
 
 .nav-logo {
     font-family: "Sofia Sans Extra Condensed", sans-serif;
-    font-size: 1.8rem;
+    font-size: 1.9rem;
     font-weight: 700;
-    color: #0c1b33;
+    color: var(--primary);
 }
 
 .nav-links {
@@ -44,17 +64,18 @@ html{
 
 .nav-links a {
     text-decoration: none;
-    color: #162447;
+    color: var(--primary);
     font-weight: 500;
-    position: relative;
+    transition: color 0.2s ease;
 }
 
 .nav-links a:hover {
-    color: #0c1b33;
+    color: var(--secondary);
 }
 
-
-/* HERO */
+/* ============================
+   HERO SECTION
+============================ */
 .hero {
     position: relative;
     height: 80vh;
@@ -64,93 +85,142 @@ html{
     justify-content: center;
     padding: 2rem;
 }
+
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.35);
+    background: var(--primary); /* primary tone overlay */
 }
+
 .hero-inner {
     position: relative;
     text-align: center;
-    color: white;
+    color: var(--text-light);
     max-width: 700px;
 }
+
 .hero-inner h1 {
     font-family: "Sofia Sans Extra Condensed", sans-serif;
     font-size: 4rem;
     line-height: 1.1;
 }
 
-/* SPLIT SECTIONS */
+.accent {
+    color: var(--accent-olive);
+}
+
+/* ============================
+   SPLIT SECTIONS
+============================ */
 .split {
     display: flex;
     align-items: center;
     gap: 3rem;
     padding: 5rem 10%;
 }
+
 .split.reverse {
     flex-direction: row-reverse;
 }
+
 .split-img {
     width: 50%;
+    height: 350px;
+    object-fit: cover;
     border-radius: 1rem;
+    display: block;
 }
+
 .split-content {
     width: 50%;
     font-size: 1.1rem;
 }
 
-/* SERVICES */
+/* ============================
+   SERVICES SECTION
+============================ */
 .services {
     padding: 5rem 10%;
     text-align: center;
 }
+
 .service-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 2rem;
     margin-top: 3rem;
 }
+
 .service-card {
     background: white;
     padding: 2rem;
     border-radius: 1rem;
-    border: 1px solid #e5e7eb;
+    border: 1px solid rgba(100, 148, 170, 0.25); /* secondary accent */
     text-align: center;
+    transition: box-shadow 0.25s ease;
 }
 
-/* FULL WIDTH BAND */
+.service-card:hover {
+    box-shadow: 0 8px 20px rgba(100, 148, 170, 0.25);
+}
+
+.service-card .icon {
+    width: 250px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+/* ============================
+   FULL WIDTH BAND
+============================ */
 .band {
     position: relative;
     padding: 6rem 1rem;
     background: url("https://via.placeholder.com/1600x600") center/cover no-repeat;
-    color: white;
+    color: var(--text-light);
     text-align: center;
 }
 
-.band h2{
+.band h2 {
     position: relative;
-    color:white;
-    font-size:2.5rem;
-    z-index:2;
+    font-size: 2.5rem;
+    z-index: 2;
 }
 
 .band-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.4);
+    background: var(--primary); /* primary overlay */
 }
 
-/* CTA */
+.band #trust {
+    color: var(--accent-olive);
+}
+
+.band #collaboration {
+    color: var(--accent-red);
+}
+/* ============================
+   CTA SECTION
+============================ */
 .contact {
     text-align: center;
     padding: 5rem 1rem;
 }
+
 .cta-btn {
     padding: 0.9rem 2rem;
     border: none;
     border-radius: 999px;
-    background: #0c1b33;
-    color: white;
+    background: var(--accent-olive);
+    color: var(--text-light);
     cursor: pointer;
+    font-weight: 600;
+    transition: background 0.2s ease;
+}
+
+.cta-btn:hover {
+    background: #769949; /* darker olive */
 }
